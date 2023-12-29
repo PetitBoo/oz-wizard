@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfibx381d7keu"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_f7wqx"]
+[ext_resource type="PackedScene" uid="uid://db6c7l5aqgru7" path="res://back_ground.tscn" id="2_7ja3h"]
+[ext_resource type="AudioStream" uid="uid://c8sqnh0iradlv" path="res://Sounds/716982__kickhat__gameplay-match-3.wav" id="3_klpvx"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_f7wqx")
+
+[node name="Play" type="Button" parent="."]
+offset_left = 797.0
+offset_top = 421.0
+offset_right = 1193.0
+offset_bottom = 522.0
+theme_override_font_sizes/font_size = 50
+text = "Play"
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 798.0
+offset_top = 583.0
+offset_right = 1194.0
+offset_bottom = 684.0
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+
+[node name="BackGround" parent="." instance=ExtResource("2_7ja3h")]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_klpvx")
+volume_db = -5.622
+autoplay = true
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
